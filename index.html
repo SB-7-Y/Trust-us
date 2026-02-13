@@ -1,1 +1,489 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitrine d'Antiquités · colorful & antique</title>
+  <!-- Font Awesome 6 (free) for delicate icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fcf7f0;  ·  warm vintage paper
+      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+      color: #342a21;
+      line-height: 1.5;
+    }
+
+    /* colourful, layered background texture */
+    .antique-paper-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 210, 210, 0.25) 0%, transparent 30%),
+        radial-gradient(circle at 90% 70%, rgba(200, 230, 255, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(250, 240, 180, 0.35) 0%, transparent 45%),
+        repeating-linear-gradient(45deg, rgba(200, 170, 140, 0.02) 0px, rgba(200, 170, 140, 0.02) 2px, transparent 2px, transparent 8px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .wrapper {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* header with faded colour blocks */
+    .shop-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding: 1.2rem 2rem;
+      background: rgba(255, 245, 235, 0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 60px 60px 30px 30px;
+      box-shadow: 0 12px 25px -10px rgba(140, 90, 60, 0.2), inset 0 1px 4px rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 235, 210, 0.7);
+    }
+
+    .shop-name h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #9e5f4b, #5f3d32, #3f6a6b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 4px 4px 12px rgba(255, 210, 170, 0.5);
+    }
+
+    .shop-name small {
+      font-size: 1rem;
+      background: #eadbce;
+      color: #4e3e33;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 5px;
+      font-style: italic;
+      border: 1px solid #ffe1c6;
+    }
+
+    .header-contact {
+      display: flex;
+      gap: 1.8rem;
+      color: #624c3b;
+      font-size: 1.3rem;
+    }
+    .header-contact i {
+      background: #e8d9cc;
+      padding: 0.7rem;
+      border-radius: 50%;
+      color: #8b5f4c;
+      transition: 0.2s;
+      box-shadow: 0 4px 8px rgba(140, 90, 70, 0.15);
+    }
+    .header-contact i:hover {
+      background: #cfb6a4;
+      color: #2f4b4c;
+      transform: scale(1.06) rotate(2deg);
+    }
+
+    /* decorative colour line */
+    .brush-stroke {
+      height: 18px;
+      background: repeating-linear-gradient(90deg, #eea38a, #efc6a0, #c0cfb2, #a6c9cf, #cf9faa);
+      border-radius: 20px;
+      width: 80%;
+      margin: 0 0 2rem 0;
+      opacity: 0.8;
+      box-shadow: 0 2px 6px rgba(170, 120, 70, 0.2);
+    }
+
+    /* tagline */
+    .colorful-quote {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #583c2c;
+      background: rgba(255, 230, 200, 0.5);
+      padding: 0.5rem 2rem;
+      border-radius: 100px;
+      width: fit-content;
+      margin: 0 auto 3rem auto;
+      backdrop-filter: blur(3px);
+      border: 1px dashed #dbb894;
+    }
+    .colorful-quote i {
+      color: #b4675a;
+      margin: 0 10px;
+    }
+
+    /* gallery — colorful tiles */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem 1.8rem;
+      margin: 3rem 0 4rem;
+    }
+
+    .antique-card {
+      background: rgba(255, 250, 240, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 35px 35px 35px 8px;
+      padding: 1.5rem 1.2rem 1.8rem;
+      box-shadow: 0 25px 30px -15px rgba(110, 70, 45, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.3s;
+      border: 1px solid rgba(255, 225, 190, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .antique-card:hover {
+      transform: translateY(-7px) scale(1.01);
+      box-shadow: 0 30px 35px -10px #9f7b60;
+      border-color: #fbc19c;
+    }
+
+    .card-icon {
+      font-size: 3.8rem;
+      margin-bottom: 0.7rem;
+      color: #aa7559;
+      text-shadow: 0 5px 10px #ebd5c0;
+      transition: 0.2s;
+      background: #f5e7dc;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 -2px 5px #ffe1ca, 0 10px 12px #d4b69c;
+    }
+
+    .antique-card:nth-child(1) .card-icon { background: #fbdbc3; color: #a75941; }
+    .antique-card:nth-child(2) .card-icon { background: #c7e1d9; color: #2d6a6b; }
+    .antique-card:nth-child(3) .card-icon { background: #fce3b5; color: #b5864b; }
+    .antique-card:nth-child(4) .card-icon { background: #edd0e4; color: #9f5472; }
+    .antique-card:nth-child(5) .card-icon { background: #c7d9f0; color: #4f628e; }
+    .antique-card:nth-child(6) .card-icon { background: #d5d0b3; color: #797256; }
+
+    .antique-card h3 {
+      font-size: 1.7rem;
+      font-weight: 380;
+      letter-spacing: 1px;
+      margin: 0.5rem 0 0.3rem;
+      background: linear-gradient(145deg, #3b3a30, #714b3a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .antique-card p {
+      color: #4b3d32;
+      margin: 0.6rem 0;
+      font-size: 1rem;
+      background: rgba(255, 235, 215, 0.6);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+    }
+
+    .price-tag {
+      font-weight: 600;
+      font-size: 1.6rem;
+      background: #ffebd2;
+      padding: 0.2rem 1.8rem;
+      border-radius: 40px;
+      color: #944e33;
+      border: 2px solid #fff2e3;
+      box-shadow: 0 4px 0 #aa745b;
+      margin-top: 0.7rem;
+      display: inline-block;
+    }
+
+    /* story & atmosphere section — colorful blocs */
+    .story-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem 0;
+      background: rgba(250, 235, 215, 0.3);
+      backdrop-filter: blur(5px);
+      border-radius: 70px 20px 70px 20px;
+      padding: 2.5rem 2rem;
+      border: 2px solid #f9dbbc;
+    }
+
+    .story-text {
+      flex: 2 1 300px;
+    }
+    .story-text h2 {
+      font-size: 2.3rem;
+      font-weight: 350;
+      background: linear-gradient(130deg, #90684b, #437373);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    .story-text p {
+      font-size: 1.2rem;
+      color: #3d3026;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 8px solid #deaa8f;
+    }
+
+    .story-highlight {
+      flex: 1 1 200px;
+      background: #eedac8;
+      border-radius: 45px 10px 45px 10px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: inset 0 0 0 2px #fff9ef, 0 15px 15px -10px #bb9a84;
+      color: #2e4a4a;
+    }
+    .story-highlight i {
+      font-size: 2.5rem;
+      color: #b05f4b;
+      margin-right: 10px;
+    }
+    .story-highlight span {
+      font-weight: 600;
+      font-size: 1.9rem;
+      background: #fcf0e4;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+    }
+
+    /* visit banner — colourful glass */
+    .visit-banner {
+      background: linear-gradient(115deg, rgba(235, 210, 180, 0.8), rgba(195, 215, 200, 0.8));
+      backdrop-filter: blur(5px);
+      border-radius: 90px 10px 90px 10px;
+      padding: 2rem 2.5rem;
+      margin: 4rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border: 2px solid #fff5e7;
+    }
+
+    .visit-banner h3 {
+      font-size: 2.2rem;
+      font-weight: 350;
+      color: #232323;
+      text-shadow: 0 2px 10px #fff1c0;
+    }
+    .visit-banner h3 i {
+      color: #ba7a5a;
+      background: white;
+      padding: 0.4rem;
+      border-radius: 50%;
+      width: 3rem;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn {
+      background: #f3e2cd;
+      border: none;
+      padding: 1rem 2.8rem;
+      border-radius: 40px;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #3b3f46;
+      box-shadow: 0 10px 0 #b4947a, 0 5px 25px #f7cfb0;
+      cursor: default;
+      transition: 0.07s linear;
+      border: 2px solid #ffebd2;
+    }
+    .btn i {
+      margin-right: 0.5rem;
+      color: #a26044;
+    }
+    .btn:active {
+      transform: translateY(6px);
+      box-shadow: 0 4px 0 #b4947a, 0 8px 20px #f7cfb0;
+    }
+
+    /* footer with more colour */
+    .shop-footer {
+      margin-top: 5rem;
+      padding: 2rem 1.5rem 1.2rem;
+      background: #e9dccd;
+      background: linear-gradient(145deg, #ebdad0, #d7c7b6);
+      border-radius: 70px 70px 30px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #3f2f24;
+      border: 2px solid #ffe8cf;
+    }
+
+    .footer-links a {
+      color: #5d4c39;
+      margin: 0 0.7rem;
+      font-size: 1.4rem;
+      background: #fff2e2;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+      display: inline-block;
+      transition: 0.15s;
+    }
+    .footer-links a:hover {
+      background: #cdb9aa;
+      color: #1d4a4d;
+    }
+
+    .footer-note {
+      font-size: 1rem;
+      font-style: italic;
+      background: #f6ede4;
+      padding: 0.3rem 1.3rem;
+      border-radius: 40px;
+    }
+
+    /* responsiveness */
+    @media (max-width: 650px) {
+      .wrapper { padding: 1rem; }
+      .shop-header { flex-direction: column; text-align: center; }
+      .colorful-quote { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="antique-paper-bg"></div>
+
+  <div class="wrapper">
+    <!-- header with soft colour touches -->
+    <header class="shop-header">
+      <div class="shop-name">
+        <h1><i class="fas fa-store-alt" style="color: #ad7057; margin-right: 10px;"></i>CHROM·ANTIQUE</h1>
+        <small>trésors de couleur · est. 1987</small>
+      </div>
+      <div class="header-contact">
+        <i class="fas fa-map-pin" title="visite"></i>
+        <i class="fas fa-phone-alt" title="rendez-vous"></i>
+        <i class="fas fa-envelope" title="écrire"></i>
+      </div>
+    </header>
+
+    <div class="brush-stroke"></div>
+
+    <!-- colorful motto -->
+    <div class="colorful-quote">
+      <i class="fas fa-palette"></i>   meubles, luminaires & curiosités hauts en couleur   <i class="fas fa-crown"></i>
+    </div>
+
+    <!-- gallery core: six beautiful antique items with vivid accents -->
+    <section class="gallery">
+      <!-- item 1 -->
+      <div class="antique-card">
+        <div class="card-icon"><i class="fas fa-couch"></i></div>
+        <h3>bergère Louis XVI</h3>
+        <p>tapisserie fleurie · bois doré à la feuille</p>
+        <div class="price-tag">1 280 €</div>
+      </div>
+      <!-- item 2 -->
+      <div class="antique-card">
+        <div class="card-icon"><i class="fas fa-clock"></i></div>
+        <h3>pendule "Aurore"</h3>
+        <p>marbre griotte & bronze ciselé · 1875</p>
+        <div class="price-tag">950 €</div>
+      </div>
+      <!-- item 3 -->
+      <div class="antique-card">
+        <div class="card-icon"><i class="fas fa-chess-board"></i></div>
+        <h3>guéridon marqueté</h3>
+        <p>acajou, citronnier & filets de laiton</p>
+        <div class="price-tag">2 400 €</div>
+      </div>
+      <!-- item 4 -->
+      <div class="antique-card">
+        <div class="card-icon"><i class="fas fa-gem"></i></div>
+        <h3>broche Art Nouveau</h3>
+        <p>émail plique-à-jour · perles baroques</p>
+        <div class="price-tag">690 €</div>
+      </div>
+      <!-- item 5 -->
+      <div class="antique-card">
+        <div class="card-icon"><i class="fas fa-lamp"></i></div>
+        <h3>lampe gallé</h3>
+        <p>verre multicouche gravé à l'acide · motif orchydées</p>
+        <div class="price-tag">1 850 €</div>
+      </div>
+      <!-- item 6 -->
+      <div class="antique-card">
+        <div class="card-icon"><i class="fas fa-fan"></i></div>
+        <h3>paravent coromandel</h3>
+        <p>laque polychrome · scènes de la vie mandarine</p>
+        <div class="price-tag">3 200 €</div>
+      </div>
+    </section>
+
+    <!-- story section + vivid colour details -->
+    <div class="story-section">
+      <div class="story-text">
+        <h2><i class="fas fa-feather" style="color:#b5805e"></i> la galerie chromatique</h2>
+        <p>Nichée au cœur du Marais, notre boutique est un écrin de couleurs patinées. Ici, chaque meuble raconte une histoire teintée de pourpre, de vert-de-gris ou de jaune d’ocre. Nous chinons avec l’œil du peintre et la main du collectionneur.</p>
+        <p>➔ meubles vernis, faïences émaillées, miroirs au tain chaud… un arc-en-ciel d’époques.</p>
+      </div>
+      <div class="story-highlight">
+        <i class="fas fa-crown"></i> <span>+300</span> pièces uniques<br>
+        <i class="fas fa-flask" style="color:#80705a;"></i> restauration & patines sur mesure<br>
+        <i class="fas fa-leaf" style="color:#6f8a6f;"></i> livraison et conseil en décoration
+      </div>
+    </div>
+
+    <!-- visit card with lively button -->
+    <div class="visit-banner">
+      <h3><i class="fas fa-store"></i> 5, rue des Antiquaires · Paris 4e</h3>
+      <div class="btn" tabindex="0"><i class="fas fa-calendar-check"></i> réserver une visite</div>
+    </div>
+
+    <!-- small gallery of colour adjectives (extra colour layer) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin: 2.5rem 0;">
+      <span style="background:#e5c6b0; padding:0.4rem 1.8rem; border-radius:80px;">terracotta</span>
+      <span style="background:#b4c4c9; padding:0.4rem 1.8rem; border-radius:80px;">céladon</span>
+      <span style="background:#eedba7; padding:0.4rem 1.8rem; border-radius:80px;">champagne</span>
+      <span style="background:#dbb8cb; padding:0.4rem 1.8rem; border-radius:80px;">mauve poudré</span>
+      <span style="background:#babb94; padding:0.4rem 1.8rem; border-radius:80px;">sauge</span>
+      <span style="background:#f0caaf; padding:0.4rem 1.8rem; border-radius:80px;">abricot</span>
+      <span style="background:#bacec1; padding:0.4rem 1.8rem; border-radius:80px;">vert anglais</span>
+    </div>
+
+    <!-- footer with delicate colorful links -->
+    <footer class="shop-footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-heart"></i></a>
+      </div>
+      <div class="footer-note">
+        <i class="fas fa-phone" style="color:#966f53;"></i> +33 1 42 73 18 09  •  ouvert mer-sam 11h–19h
+      </div>
+      <div style="color:#644f40; font-size:0.9rem;">© 2025 · chromantique • toutes les couleurs du passé</div>
+    </footer>
+
+    <!-- tiny decorative element — floating gem -->
+    <div style="position: fixed; bottom: 20px; right: 20px; opacity: 0.4; pointer-events: none; z-index: 0; font-size: 4rem; transform: rotate(10deg); mix-blend-mode: soft-light;">🔮</div>
+  </div>
+
+  <!-- hover effect (static, no js needed) -->
+</body>
+</html>
