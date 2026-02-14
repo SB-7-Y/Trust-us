@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vitrine d'Antiquités · colorful & antique</title>
-  <!-- Font Awesome 6 (free) for delicate icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>petal & hue · colorful flower shop</title>
+  <!-- Poppins & Playfair for soft, elegant feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,476 +16,511 @@
     }
 
     body {
-      background: #fcf7f0;  ·  warm vintage paper
-      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-      color: #342a21;
+      font-family: 'Poppins', sans-serif;
+      background: #fef9f6;  /* warm background */
+      color: #2e3b3b;
       line-height: 1.5;
     }
 
-    /* colourful, layered background texture */
-    .antique-paper-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: 
-        radial-gradient(circle at 10% 20%, rgba(255, 210, 210, 0.25) 0%, transparent 30%),
-        radial-gradient(circle at 90% 70%, rgba(200, 230, 255, 0.4) 0%, transparent 40%),
-        radial-gradient(circle at 30% 80%, rgba(250, 240, 180, 0.35) 0%, transparent 45%),
-        repeating-linear-gradient(45deg, rgba(200, 170, 140, 0.02) 0px, rgba(200, 170, 140, 0.02) 2px, transparent 2px, transparent 8px);
-      pointer-events: none;
-      z-index: -1;
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
-    .wrapper {
-      max-width: 1300px;
+    .container {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 2rem 3rem;
+      padding: 0 24px;
+    }
+
+    /* ---- header + navigation ---- */
+    header {
+      padding: 28px 0 16px;
+      background: linear-gradient(145deg, #fffaf3 0%, #fceae8 100%);
+      border-bottom: 2px solid #f8d1c0;
+    }
+
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo h1 {
+      font-size: 2.4rem;
+      background: linear-gradient(135deg, #c44569, #ea868f, #f8a5c2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+    .logo span {
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: #b38b8b;
+      display: block;
+      margin-top: -6px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #5d4a4a;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    nav a:hover {
+      border-bottom-color: #f3969a;
+      color: #b3415c;
+    }
+
+    /* ---- hero with colorful flowers (pure CSS) ---- */
+    .hero {
+      background: #ffe9e3;
+      margin: 32px 0 48px;
+      border-radius: 40px 40px 40px 40px;
+      padding: 32px 24px;
+      box-shadow: 0 12px 28px rgba(230, 150, 140, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-decoration {
       position: relative;
       z-index: 2;
     }
 
-    /* header with faded colour blocks */
-    .shop-header {
+    .hero h2 {
+      font-size: 3.2rem;
+      color: #362a2a;
+      line-height: 1.2;
+      max-width: 600px;
+    }
+    .hero h2 i {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #c44569;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 500px;
+      margin: 20px 0 30px;
+      color: #544b4b;
+      background: rgba(255, 245, 235, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 10px 18px;
+      border-radius: 60px;
+      display: inline-block;
+    }
+
+    /* ---- abstract flower garden (colored blobs + petals) ---- */
+    .flower-garden {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 600px;
+      height: 400px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    .petal {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #ffb8b8;
+      border-radius: 80% 0 80% 0;
+      transform: rotate(20deg);
+    }
+
+    .petal-1 { background: #f9d9aa; top: 30px; right: 200px; width: 130px; height: 130px; border-radius: 80% 0 70% 20%; transform: rotate(10deg); }
+    .petal-2 { background: #f8a5c2; top: 140px; right: 280px; width: 160px; height: 160px; border-radius: 40% 70% 30% 70%; transform: rotate(70deg); opacity: 0.8; }
+    .petal-3 { background: #b8e0d4; top: 200px; right: 120px; width: 200px; height: 200px; border-radius: 70% 20% 60% 30%; transform: rotate(120deg); mix-blend-mode: multiply; }
+    .petal-4 { background: #f3a683; top: -10px; right: 380px; width: 140px; height: 140px; border-radius: 40% 60% 70% 20%; transform: rotate(40deg); }
+    .dot-flower { position: absolute; width: 40px; height: 40px; background: #f8d1c0; border-radius: 50%; box-shadow: 30px 20px 0 #fac8b0, 60px 40px 0 #ffb29b, -20px 50px 0 #fed0bb, 10px 80px 0 #fec2b0; top: 50px; right: 60px; }
+
+    /* button */
+    .btn {
+      display: inline-block;
+      background: #f55f7c;
+      color: white;
+      font-weight: 600;
+      padding: 16px 38px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 1.3rem;
+      box-shadow: 0 12px 14px -8px rgba(230, 100, 120, 0.5);
+      transition: 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #d94360;
+      transform: scale(1.02);
+      box-shadow: 0 20px 20px -8px #d99ba8;
+    }
+
+    /* ---- colorful categories ---- */
+    .section-title {
+      text-align: center;
+      font-size: 2.6rem;
+      color: #553d3d;
+      margin: 60px 0 30px;
+    }
+    .section-title span {
+      background: linear-gradient(145deg, #f3969a, #f7b977, #a9d5b0);
+      padding: 0 12px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cat-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.5rem;
-      padding: 1.2rem 2rem;
-      background: rgba(255, 245, 235, 0.7);
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .cat-item {
+      flex: 1 1 220px;
+      max-width: 260px;
+      background: #ffffffdb;
       backdrop-filter: blur(6px);
-      border-radius: 60px 60px 30px 30px;
-      box-shadow: 0 12px 25px -10px rgba(140, 90, 60, 0.2), inset 0 1px 4px rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(255, 235, 210, 0.7);
-    }
-
-    .shop-name h1 {
-      font-size: 2.2rem;
-      font-weight: 400;
-      letter-spacing: 2px;
-      background: linear-gradient(135deg, #9e5f4b, #5f3d32, #3f6a6b);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 4px 4px 12px rgba(255, 210, 170, 0.5);
-    }
-
-    .shop-name small {
-      font-size: 1rem;
-      background: #eadbce;
-      color: #4e3e33;
-      padding: 0.2rem 1rem;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 5px;
-      font-style: italic;
-      border: 1px solid #ffe1c6;
-    }
-
-    .header-contact {
-      display: flex;
-      gap: 1.8rem;
-      color: #624c3b;
-      font-size: 1.3rem;
-    }
-    .header-contact i {
-      background: #e8d9cc;
-      padding: 0.7rem;
-      border-radius: 50%;
-      color: #8b5f4c;
-      transition: 0.2s;
-      box-shadow: 0 4px 8px rgba(140, 90, 70, 0.15);
-    }
-    .header-contact i:hover {
-      background: #cfb6a4;
-      color: #2f4b4c;
-      transform: scale(1.06) rotate(2deg);
-    }
-
-    /* decorative colour line */
-    .brush-stroke {
-      height: 18px;
-      background: repeating-linear-gradient(90deg, #eea38a, #efc6a0, #c0cfb2, #a6c9cf, #cf9faa);
-      border-radius: 20px;
-      width: 80%;
-      margin: 0 0 2rem 0;
-      opacity: 0.8;
-      box-shadow: 0 2px 6px rgba(170, 120, 70, 0.2);
-    }
-
-    /* tagline */
-    .colorful-quote {
+      border-radius: 48px 48px 32px 32px;
+      padding: 30px 10px 20px;
+      box-shadow: 0 20px 30px #fcd5ce;
       text-align: center;
-      font-size: 1.6rem;
+      transition: all 0.25s;
+      border: 2px solid #fbe3dd;
+    }
+
+    .cat-item:hover {
+      transform: translateY(-10px);
+      border-color: #fba6b1;
+      box-shadow: 0 28px 28px #fec9bb;
+    }
+
+    .cat-icon {
+      font-size: 4.4rem;
+      line-height: 1;
+      margin-bottom: 8px;
+      filter: drop-shadow(2px 6px 6px #f1b6b6);
+    }
+
+    .cat-item h3 {
+      font-size: 1.9rem;
+      color: #8c5a5a;
+      font-weight: 500;
+    }
+
+    .cat-item p {
+      color: #b18787;
       font-weight: 300;
-      color: #583c2c;
-      background: rgba(255, 230, 200, 0.5);
-      padding: 0.5rem 2rem;
-      border-radius: 100px;
-      width: fit-content;
-      margin: 0 auto 3rem auto;
-      backdrop-filter: blur(3px);
-      border: 1px dashed #dbb894;
-    }
-    .colorful-quote i {
-      color: #b4675a;
-      margin: 0 10px;
     }
 
-    /* gallery — colorful tiles */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem 1.8rem;
-      margin: 3rem 0 4rem;
+    /* ---- featured bouquets (color explosion) ---- */
+    .bouquet-showcase {
+      background: #fbeae9;
+      border-radius: 70px 20px 70px 20px;
+      padding: 40px 20px;
+      margin: 50px 0;
+      box-shadow: inset 0 -2px 10px #ffe2dd, 0 20px 20px #faded3;
     }
 
-    .antique-card {
-      background: rgba(255, 250, 240, 0.6);
-      backdrop-filter: blur(8px);
-      border-radius: 35px 35px 35px 8px;
-      padding: 1.5rem 1.2rem 1.8rem;
-      box-shadow: 0 25px 30px -15px rgba(110, 70, 45, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.3s;
-      border: 1px solid rgba(255, 225, 190, 0.7);
+    .bouquet-grid {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
     }
 
-    .antique-card:hover {
-      transform: translateY(-7px) scale(1.01);
-      box-shadow: 0 30px 35px -10px #9f7b60;
-      border-color: #fbc19c;
-    }
-
-    .card-icon {
-      font-size: 3.8rem;
-      margin-bottom: 0.7rem;
-      color: #aa7559;
-      text-shadow: 0 5px 10px #ebd5c0;
+    .card {
+      background: white;
+      border-radius: 40px 40px 30px 30px;
+      width: 260px;
+      padding: 0 0 26px;
+      box-shadow: 0 10px 20px #efc3bb;
       transition: 0.2s;
-      background: #f5e7dc;
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
+      border: 1px solid white;
+    }
+
+    .card:hover {
+      border: 1px solid #feb4b4;
+      box-shadow: 0 18px 30px #f1aca4;
+    }
+
+    .card-img {
+      height: 200px;
+      border-radius: 38px 38px 30px 30px;
+      background: linear-gradient(145deg, #ffd3b5, #feb5b5, #c8e7d5, #ffe2b8);
+      background-size: 300% 300%;
+      animation: gradientFlow 8s ease infinite;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: inset 0 -2px 5px #ffe1ca, 0 10px 12px #d4b69c;
+      font-size: 5rem;
+      filter: drop-shadow(0 8px 6px #f1b9af);
+    }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .antique-card:nth-child(1) .card-icon { background: #fbdbc3; color: #a75941; }
-    .antique-card:nth-child(2) .card-icon { background: #c7e1d9; color: #2d6a6b; }
-    .antique-card:nth-child(3) .card-icon { background: #fce3b5; color: #b5864b; }
-    .antique-card:nth-child(4) .card-icon { background: #edd0e4; color: #9f5472; }
-    .antique-card:nth-child(5) .card-icon { background: #c7d9f0; color: #4f628e; }
-    .antique-card:nth-child(6) .card-icon { background: #d5d0b3; color: #797256; }
-
-    .antique-card h3 {
-      font-size: 1.7rem;
-      font-weight: 380;
-      letter-spacing: 1px;
-      margin: 0.5rem 0 0.3rem;
-      background: linear-gradient(145deg, #3b3a30, #714b3a);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .card h4 {
+      font-size: 1.8rem;
+      margin: 16px 0 4px;
+      color: #b3415c;
+      font-weight: 500;
     }
-
-    .antique-card p {
-      color: #4b3d32;
-      margin: 0.6rem 0;
-      font-size: 1rem;
-      background: rgba(255, 235, 215, 0.6);
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-    }
-
-    .price-tag {
-      font-weight: 600;
+    .card .price {
       font-size: 1.6rem;
-      background: #ffebd2;
-      padding: 0.2rem 1.8rem;
-      border-radius: 40px;
-      color: #944e33;
-      border: 2px solid #fff2e3;
-      box-shadow: 0 4px 0 #aa745b;
-      margin-top: 0.7rem;
-      display: inline-block;
+      font-weight: 300;
+      color: #697565;
     }
 
-    /* story & atmosphere section — colorful blocs */
-    .story-section {
+    /* ---- testimonials / colorful notes ---- */
+    .testimonials {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
-      margin: 4rem 0;
-      background: rgba(250, 235, 215, 0.3);
-      backdrop-filter: blur(5px);
-      border-radius: 70px 20px 70px 20px;
-      padding: 2.5rem 2rem;
-      border: 2px solid #f9dbbc;
+      gap: 30px;
+      justify-content: center;
+      margin: 60px 0;
     }
-
-    .story-text {
-      flex: 2 1 300px;
+    .quote {
+      background: #fff3e6;
+      border-radius: 50px 10px 50px 10px;
+      padding: 28px 25px;
+      flex: 1 1 280px;
+      box-shadow: 12px 12px 0 #fecbc1;
+      border: 2px solid #ffc9be;
     }
-    .story-text h2 {
-      font-size: 2.3rem;
-      font-weight: 350;
-      background: linear-gradient(130deg, #90684b, #437373);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
+    .quote i {
+      font-size: 3rem;
+      color: #f3969a;
+      opacity: 0.6;
     }
-    .story-text p {
+    .quote p {
       font-size: 1.2rem;
-      color: #3d3026;
-      margin-bottom: 1rem;
-      padding-left: 1rem;
-      border-left: 8px solid #deaa8f;
+      margin: 8px 0;
     }
-
-    .story-highlight {
-      flex: 1 1 200px;
-      background: #eedac8;
-      border-radius: 45px 10px 45px 10px;
-      padding: 1.8rem 1.5rem;
-      box-shadow: inset 0 0 0 2px #fff9ef, 0 15px 15px -10px #bb9a84;
-      color: #2e4a4a;
-    }
-    .story-highlight i {
-      font-size: 2.5rem;
-      color: #b05f4b;
-      margin-right: 10px;
-    }
-    .story-highlight span {
+    .quote .author {
       font-weight: 600;
-      font-size: 1.9rem;
-      background: #fcf0e4;
-      padding: 0.2rem 0.6rem;
-      border-radius: 30px;
+      color: #c0676e;
     }
 
-    /* visit banner — colourful glass */
-    .visit-banner {
-      background: linear-gradient(115deg, rgba(235, 210, 180, 0.8), rgba(195, 215, 200, 0.8));
-      backdrop-filter: blur(5px);
-      border-radius: 90px 10px 90px 10px;
-      padding: 2rem 2.5rem;
-      margin: 4rem 0 2rem;
+    /* ---- footer ---- */
+    footer {
+      background: #443838;
+      color: #f1e1da;
+      padding: 48px 0 24px;
+      border-radius: 60px 60px 0 0;
+      margin-top: 60px;
+    }
+
+    .footer-content {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      border: 2px solid #fff5e7;
+      gap: 30px;
     }
 
-    .visit-banner h3 {
-      font-size: 2.2rem;
-      font-weight: 350;
-      color: #232323;
-      text-shadow: 0 2px 10px #fff1c0;
-    }
-    .visit-banner h3 i {
-      color: #ba7a5a;
-      background: white;
-      padding: 0.4rem;
-      border-radius: 50%;
-      width: 3rem;
-      display: inline-block;
-      text-align: center;
-    }
-
-    .btn {
-      background: #f3e2cd;
-      border: none;
-      padding: 1rem 2.8rem;
-      border-radius: 40px;
+    .footer-col h4 {
+      color: #fbc9b5;
       font-size: 1.5rem;
-      font-weight: 400;
-      color: #3b3f46;
-      box-shadow: 0 10px 0 #b4947a, 0 5px 25px #f7cfb0;
-      cursor: default;
-      transition: 0.07s linear;
-      border: 2px solid #ffebd2;
+      margin-bottom: 10px;
     }
-    .btn i {
-      margin-right: 0.5rem;
-      color: #a26044;
+    .footer-col p, .footer-col a {
+      color: #edd6cf;
+      text-decoration: none;
+      display: block;
+      margin: 6px 0;
     }
-    .btn:active {
-      transform: translateY(6px);
-      box-shadow: 0 4px 0 #b4947a, 0 8px 20px #f7cfb0;
-    }
-
-    /* footer with more colour */
-    .shop-footer {
-      margin-top: 5rem;
-      padding: 2rem 1.5rem 1.2rem;
-      background: #e9dccd;
-      background: linear-gradient(145deg, #ebdad0, #d7c7b6);
-      border-radius: 70px 70px 30px 30px;
+    .social-icons {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      color: #3f2f24;
-      border: 2px solid #ffe8cf;
+      gap: 24px;
+      font-size: 2rem;
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      color: #baa29b;
+      border-top: 1px dashed #a67a72;
+      padding-top: 24px;
     }
 
-    .footer-links a {
-      color: #5d4c39;
-      margin: 0 0.7rem;
-      font-size: 1.4rem;
-      background: #fff2e2;
-      padding: 0.3rem 0.7rem;
-      border-radius: 50px;
-      display: inline-block;
-      transition: 0.15s;
-    }
-    .footer-links a:hover {
-      background: #cdb9aa;
-      color: #1d4a4d;
-    }
-
-    .footer-note {
-      font-size: 1rem;
-      font-style: italic;
-      background: #f6ede4;
-      padding: 0.3rem 1.3rem;
-      border-radius: 40px;
-    }
-
-    /* responsiveness */
-    @media (max-width: 650px) {
-      .wrapper { padding: 1rem; }
-      .shop-header { flex-direction: column; text-align: center; }
-      .colorful-quote { font-size: 1.2rem; }
+    /* responsive touches */
+    @media (max-width: 700px) {
+      .header-row { flex-direction: column; gap: 16px; }
+      .hero h2 { font-size: 2.4rem; }
+      .flower-garden { opacity: 0.3; }
     }
   </style>
 </head>
 <body>
-  <div class="antique-paper-bg"></div>
 
-  <div class="wrapper">
-    <!-- header with soft colour touches -->
-    <header class="shop-header">
-      <div class="shop-name">
-        <h1><i class="fas fa-store-alt" style="color: #ad7057; margin-right: 10px;"></i>CHROM·ANTIQUE</h1>
-        <small>trésors de couleur · est. 1987</small>
-      </div>
-      <div class="header-contact">
-        <i class="fas fa-map-pin" title="visite"></i>
-        <i class="fas fa-phone-alt" title="rendez-vous"></i>
-        <i class="fas fa-envelope" title="écrire"></i>
-      </div>
-    </header>
-
-    <div class="brush-stroke"></div>
-
-    <!-- colorful motto -->
-    <div class="colorful-quote">
-      <i class="fas fa-palette"></i>   meubles, luminaires & curiosités hauts en couleur   <i class="fas fa-crown"></i>
+<header>
+  <div class="container header-row">
+    <div class="logo">
+      <h1>petal & hue</h1>
+      <span>colorful flower shop</span>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">arrangements</a></li>
+        <li><a href="#">weddings</a></li>
+        <li><a href="#">garden</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <!-- gallery core: six beautiful antique items with vivid accents -->
-    <section class="gallery">
-      <!-- item 1 -->
-      <div class="antique-card">
-        <div class="card-icon"><i class="fas fa-couch"></i></div>
-        <h3>bergère Louis XVI</h3>
-        <p>tapisserie fleurie · bois doré à la feuille</p>
-        <div class="price-tag">1 280 €</div>
-      </div>
-      <!-- item 2 -->
-      <div class="antique-card">
-        <div class="card-icon"><i class="fas fa-clock"></i></div>
-        <h3>pendule "Aurore"</h3>
-        <p>marbre griotte & bronze ciselé · 1875</p>
-        <div class="price-tag">950 €</div>
-      </div>
-      <!-- item 3 -->
-      <div class="antique-card">
-        <div class="card-icon"><i class="fas fa-chess-board"></i></div>
-        <h3>guéridon marqueté</h3>
-        <p>acajou, citronnier & filets de laiton</p>
-        <div class="price-tag">2 400 €</div>
-      </div>
-      <!-- item 4 -->
-      <div class="antique-card">
-        <div class="card-icon"><i class="fas fa-gem"></i></div>
-        <h3>broche Art Nouveau</h3>
-        <p>émail plique-à-jour · perles baroques</p>
-        <div class="price-tag">690 €</div>
-      </div>
-      <!-- item 5 -->
-      <div class="antique-card">
-        <div class="card-icon"><i class="fas fa-lamp"></i></div>
-        <h3>lampe gallé</h3>
-        <p>verre multicouche gravé à l'acide · motif orchydées</p>
-        <div class="price-tag">1 850 €</div>
-      </div>
-      <!-- item 6 -->
-      <div class="antique-card">
-        <div class="card-icon"><i class="fas fa-fan"></i></div>
-        <h3>paravent coromandel</h3>
-        <p>laque polychrome · scènes de la vie mandarine</p>
-        <div class="price-tag">3 200 €</div>
-      </div>
-    </section>
-
-    <!-- story section + vivid colour details -->
-    <div class="story-section">
-      <div class="story-text">
-        <h2><i class="fas fa-feather" style="color:#b5805e"></i> la galerie chromatique</h2>
-        <p>Nichée au cœur du Marais, notre boutique est un écrin de couleurs patinées. Ici, chaque meuble raconte une histoire teintée de pourpre, de vert-de-gris ou de jaune d’ocre. Nous chinons avec l’œil du peintre et la main du collectionneur.</p>
-        <p>➔ meubles vernis, faïences émaillées, miroirs au tain chaud… un arc-en-ciel d’époques.</p>
-      </div>
-      <div class="story-highlight">
-        <i class="fas fa-crown"></i> <span>+300</span> pièces uniques<br>
-        <i class="fas fa-flask" style="color:#80705a;"></i> restauration & patines sur mesure<br>
-        <i class="fas fa-leaf" style="color:#6f8a6f;"></i> livraison et conseil en décoration
-      </div>
+<main class="container">
+  <!-- hero section with floating petals / colorful garden -->
+  <div class="hero">
+    <div class="hero-decoration">
+      <h2>flowers, <i>painted</i><br>with sunshine.</h2>
+      <p>✨ fresh, vibrant & always in bloom</p>
+      <a href="#" class="btn">build your bouquet →</a>
     </div>
-
-    <!-- visit card with lively button -->
-    <div class="visit-banner">
-      <h3><i class="fas fa-store"></i> 5, rue des Antiquaires · Paris 4e</h3>
-      <div class="btn" tabindex="0"><i class="fas fa-calendar-check"></i> réserver une visite</div>
+    <div class="flower-garden">
+      <div class="petal petal-1"></div>
+      <div class="petal petal-2"></div>
+      <div class="petal petal-3"></div>
+      <div class="petal petal-4"></div>
+      <div class="dot-flower"></div>
     </div>
-
-    <!-- small gallery of colour adjectives (extra colour layer) -->
-    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin: 2.5rem 0;">
-      <span style="background:#e5c6b0; padding:0.4rem 1.8rem; border-radius:80px;">terracotta</span>
-      <span style="background:#b4c4c9; padding:0.4rem 1.8rem; border-radius:80px;">céladon</span>
-      <span style="background:#eedba7; padding:0.4rem 1.8rem; border-radius:80px;">champagne</span>
-      <span style="background:#dbb8cb; padding:0.4rem 1.8rem; border-radius:80px;">mauve poudré</span>
-      <span style="background:#babb94; padding:0.4rem 1.8rem; border-radius:80px;">sauge</span>
-      <span style="background:#f0caaf; padding:0.4rem 1.8rem; border-radius:80px;">abricot</span>
-      <span style="background:#bacec1; padding:0.4rem 1.8rem; border-radius:80px;">vert anglais</span>
-    </div>
-
-    <!-- footer with delicate colorful links -->
-    <footer class="shop-footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-pinterest"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-heart"></i></a>
-      </div>
-      <div class="footer-note">
-        <i class="fas fa-phone" style="color:#966f53;"></i> +33 1 42 73 18 09  •  ouvert mer-sam 11h–19h
-      </div>
-      <div style="color:#644f40; font-size:0.9rem;">© 2025 · chromantique • toutes les couleurs du passé</div>
-    </footer>
-
-    <!-- tiny decorative element — floating gem -->
-    <div style="position: fixed; bottom: 20px; right: 20px; opacity: 0.4; pointer-events: none; z-index: 0; font-size: 4rem; transform: rotate(10deg); mix-blend-mode: soft-light;">🔮</div>
   </div>
 
-  <!-- hover effect (static, no js needed) -->
+  <!-- colorful categories (icons) -->
+  <h2 class="section-title"><span>🌸</span> colorful picks <span>🌼</span></h2>
+  <div class="cat-grid">
+    <div class="cat-item">
+      <div class="cat-icon">🌻</div>
+      <h3>sunshine</h3>
+      <p>yellows, oranges, corals</p>
+    </div>
+    <div class="cat-item">
+      <div class="cat-icon">🌺</div>
+      <h3>paradise</h3>
+      <p>hot pinks, fuchsia, reds</p>
+    </div>
+    <div class="cat-item">
+      <div class="cat-icon">🪻</div>
+      <h3>lavender</h3>
+      <p>purples, violets, lilacs</p>
+    </div>
+    <div class="cat-item">
+      <div class="cat-icon">🌷</div>
+      <h3>blush</h3>
+      <p>soft pinks, peaches, cream</p>
+    </div>
+  </div>
+
+  <!-- featured bouquets (colorful abstract cards) -->
+  <div class="bouquet-showcase">
+    <h2 class="section-title" style="margin-top: 0;">today's bright <span>bouquets</span></h2>
+    <div class="bouquet-grid">
+      <div class="card">
+        <div class="card-img">🌼🌸</div>
+        <h4>meadow pop</h4>
+        <div class="price">$42</div>
+      </div>
+      <div class="card">
+        <div class="card-img">🌹🌺</div>
+        <h4>crimson soul</h4>
+        <div class="price">$58</div>
+      </div>
+      <div class="card">
+        <div class="card-img">💐🪻</div>
+        <h4>lilac dream</h4>
+        <div class="price">$47</div>
+      </div>
+      <div class="card">
+        <div class="card-img">🌻🍊</div>
+        <h4>citrus burst</h4>
+        <div class="price">$39</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- happy customers (colorful quotes) -->
+  <h2 class="section-title"><span>💬</span> happy petal lovers <span>💬</span></h2>
+  <div class="testimonials">
+    <div class="quote">
+      <i>“</i>
+      <p>The most vibrant flowers I’ve ever seen! Every corner of my house is now a rainbow.</p>
+      <div class="author">— michelle k.</div>
+    </div>
+    <div class="quote">
+      <i>“</i>
+      <p>I ordered the ‘citrus burst’ bouquet and it literally glows. smells like summer!</p>
+      <div class="author">— sam r.</div>
+    </div>
+    <div class="quote">
+      <i>“</i>
+      <p>They arranged the most colorful wedding flowers. Unexpected & brilliant!</p>
+      <div class="author">— tara & mike</div>
+    </div>
+  </div>
+
+  <!-- tiny newsletter / special, just for color -->
+  <div style="background: #f6ded5; border-radius: 100px 20px 100px 20px; padding: 42px 24px; text-align: center; margin: 40px 0;">
+    <h3 style="font-size: 2.2rem; color: #4f3535;">want a splash of color in your inbox?</h3>
+    <p style="font-size: 1.3rem; margin: 10px 0;">fresh tips & flower love, no spam 🌼</p>
+    <div style="display: flex; max-width: 500px; margin: 30px auto; background: white; border-radius: 60px; border: 3px solid #fec6b3;">
+      <input type="email" placeholder="your flowery email" style="flex: 1; padding: 18px 24px; border: none; border-radius: 60px 0 0 60px; font-size: 1.1rem; outline: none;">
+      <button style="background: #f55f7c; border: none; color: white; padding: 0 28px; border-radius: 0 60px 60px 0; font-weight: bold; font-size: 1.1rem; cursor: pointer;">subscribe</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-col">
+      <h4>petal & hue</h4>
+      <p>a rainbow of fresh flowers,<br> hand‑wrapped with joy.</p>
+    </div>
+    <div class="footer-col">
+      <h4>visit</h4>
+      <p>42 blossom street<br>sunnyvale, ca</p>
+      <p>tue–sun 9am–6pm</p>
+    </div>
+    <div class="footer-col">
+      <h4>petal talk</h4>
+      <a href="#">instagram</a>
+      <a href="#">pinterest</a>
+      <a href="#">tiktok</a>
+    </div>
+    <div class="footer-col">
+      <h4>say hello</h4>
+      <p>hello@petalandhue.com</p>
+      <p>+1 (800) 555‑FLOWER</p>
+    </div>
+  </div>
+  <div class="copyright container">
+    © petal & hue · made with 🌈 and real flowers
+  </div>
+</footer>
 </body>
 </html>
